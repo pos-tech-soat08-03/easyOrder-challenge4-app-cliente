@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --testLocationInResults --no-coverage --reporters default --colors --watchAll=false --testPathPattern src/test",
-    "test-coverage": "jest --testLocationInResults --coverage --reporters default --colors --watchAll=false --testPathPattern src/test",
+    "test-coverage": "jest --testLocationInResults --coverage --colors --testPathPattern src/test",
     "start": "node dist/app.js",
     "build": "tsc",
     "start:dev": "npm install --save-dev; CHOKIDAR_USEPOLLING=true dotenv -- tsnd --transpile-only --respawn --ignore-watch node_modules src/app.ts",
