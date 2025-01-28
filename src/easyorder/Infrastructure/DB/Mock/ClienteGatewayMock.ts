@@ -10,17 +10,17 @@ export class ClienteGatewayMock implements ClienteGatewayInterface {
     // dados mockados
     this.clientes = [
       new ClienteEntity(
-        new CpfValueObject("414.520.324-08"),
+        new CpfValueObject("41452032408"),
         "João de Oliveira",
         new EmailValueObject("joao.oliveira@uol.com.br")
       ),
       new ClienteEntity(
-        new CpfValueObject("044.622.200-30"),
+        new CpfValueObject("04462220030"),
         "Maria Aparecida de Castro e Silva",
         new EmailValueObject("maria.cida+easyorder2231@gmail.com")
       ),
       new ClienteEntity(
-        new CpfValueObject("592.576.633-45"),
+        new CpfValueObject("59257663345"),
         "Cláudia Regina Esposito",
         new EmailValueObject("clau456@hotmail.com")
       ),
@@ -40,35 +40,35 @@ export class ClienteGatewayMock implements ClienteGatewayInterface {
     return undefined;
   }
 
-  public async adicionarCliente(cliente: ClienteEntity): Promise<boolean> {
-    if (this.buscarClientePorCpf(cliente.getCpf()) == undefined) {
-      return false;
+  public async adicionarCliente(cliente: ClienteEntity): Promise<ClienteEntity | undefined> {
+    if (await this.buscarClientePorCpf(cliente.getCpf()) !== undefined) {
+      return undefined;
     }
     this.clientes.push(cliente);
-    return true;
+    return cliente;
   }
 
-  public async removerCliente(cliente: ClienteEntity): Promise<boolean> {
-    if (this.buscarClientePorCpf(cliente.getCpf()) == undefined) {
-      return false;
-    }
-    this.clientes.filter((cliente_unit) => {
-      cliente_unit.getCpf() !== cliente.getCpf();
-    });
-    return true;
-  }
+  // public async removerCliente(cliente: ClienteEntity): Promise<boolean> {
+  //   if (this.buscarClientePorCpf(cliente.getCpf()) == undefined) {
+  //     return false;
+  //   }
+  //   this.clientes.filter((cliente_unit) => {
+  //     cliente_unit.getCpf() !== cliente.getCpf();
+  //   });
+  //   return true;
+  // }
 
   public async atualizarCliente(
     cliente: ClienteEntity,
     novoCliente: ClienteEntity
-  ): Promise<boolean> {
+  ): Promise<ClienteEntity | undefined> {
     if (this.buscarClientePorCpf(cliente.getCpf()) == undefined) {
-      return false;
+      return undefined;
     }
     const indice = this.clientes.findIndex((cliente_unit) => {
       cliente_unit.getCpf() !== cliente.getCpf();
     });
     this.clientes[indice] = novoCliente;
-    return true;
+    return novoCliente;
   }
 }
