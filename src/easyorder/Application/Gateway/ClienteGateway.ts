@@ -92,7 +92,7 @@ export class ClienteGateway implements ClienteGatewayInterface {
     );
   }
 
-  public async adicionarCliente(cliente: ClienteEntity): Promise<boolean> {
+  public async adicionarCliente(cliente: ClienteEntity): Promise<ClienteEntity | undefined> {
     const clienteData = {
       id: cliente.getId(),
       nome: cliente.getNome(),
@@ -102,7 +102,7 @@ export class ClienteGateway implements ClienteGatewayInterface {
 
     await LocalModel.upsert(clienteData);
 
-    return true;
+    return cliente;
   }
 
   public async removerCliente(cliente: ClienteEntity): Promise<boolean> {
@@ -117,7 +117,7 @@ export class ClienteGateway implements ClienteGatewayInterface {
   public async atualizarCliente(
     cliente: ClienteEntity,
     novoCliente: ClienteEntity
-  ): Promise<boolean> {
+  ): Promise<ClienteEntity | undefined> {
     await LocalModel.update(
       {
         id: novoCliente.getId(),
@@ -131,6 +131,6 @@ export class ClienteGateway implements ClienteGatewayInterface {
         },
       }
     );
-    return true;
+    return cliente;
   }
 }

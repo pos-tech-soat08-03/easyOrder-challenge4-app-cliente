@@ -16,7 +16,7 @@ export class ClientesController {
 
     public static async BuscarClientePorCpf (dbConnection: IDbConnection, cpfBusca: string): Promise<string> {
         const clienteGateway = dbConnection.gateways.clienteGateway;
-        const { cliente, mensagem }  = await ClientesUsecases.BuscarClientePorCpfUsecase(clienteGateway, cpfBusca);
+        const { cliente, mensagem }  = await ClientesUsecases.BuscarClientePorCpfUsecase({ clienteGateway, cpfTexto: cpfBusca });
         if (cliente === undefined) {
             return ClienteAdapter.adaptClienteJsonError(mensagem);
         }

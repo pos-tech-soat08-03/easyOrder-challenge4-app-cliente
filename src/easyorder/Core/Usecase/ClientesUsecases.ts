@@ -13,7 +13,7 @@ export class ClientesUsecases {
         return { clientes, mensagem: `Sucesso. ${clientes.length} Cliente(s) encontrado(s).` };
     }
 
-    public static async BuscarClientePorCpfUsecase (clienteGateway: ClienteGatewayInterface, cpfTexto: string): Promise<{ cliente: ClienteEntity | undefined, mensagem: string }> {
+    public static async BuscarClientePorCpfUsecase ({ clienteGateway, cpfTexto }: { clienteGateway: ClienteGatewayInterface; cpfTexto: string; }): Promise<{ cliente: ClienteEntity | undefined, mensagem: string }> {
         const cpfObjeto = new CpfValueObject(cpfTexto);
         const clienteBusca = await clienteGateway.buscarClientePorCpf(cpfObjeto);
         if (clienteBusca === undefined) { 

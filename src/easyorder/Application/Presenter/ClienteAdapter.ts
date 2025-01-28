@@ -2,10 +2,11 @@ import { ClienteEntity } from "../../Core/Entity/ClienteEntity";
 
 export class ClienteAdapter {
 
-    public static adaptClienteJsonError(mensagem: string): string {
-        return JSON.stringify({
-            message: mensagem
-        });
+    public static adaptClienteJsonError(mensagem: string | null | undefined): string {
+      if (mensagem === undefined) {
+        return JSON.stringify({});
+      }
+      return JSON.stringify({ message: mensagem });
     }
 
     public static adaptJsonListaClientes (clientes: ClienteEntity[], mensagem: string): string {
