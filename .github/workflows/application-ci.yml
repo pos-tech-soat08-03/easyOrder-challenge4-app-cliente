@@ -49,18 +49,18 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@4006f663ecaf1f8093e8e4abb9227f6041f52216
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on Sonarcloud.io, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
-        with:
+        #with:
           # Additional arguments for the SonarScanner CLI
-          args: |
+          #args: |
             # Unique keys of your project and organization. You can find them in SonarCloud > Information (bottom-left menu)
             # mandatory
-            -Dsonar.projectKey=pos-tech-soat08-03_easyOrder-challenge4-app-cliente
-            -Dsonar.organization=pos-tech-soat08-03
+            #-Dsonar.projectKey=pos-tech-soat08-03_easyOrder-challenge4-app-cliente
+            #-Dsonar.organization=pos-tech-soat08-03
             # Comma-separated paths to directories containing main source files.
             #-Dsonar.sources=./src
             # Comma-separated paths to directories containing test source files.
-            -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
-            -Dsonar.tests=./src/test
+            #-Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info
+            #-Dsonar.tests=./src/test
             # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
             # Adds more detail to both client and server-side analysis logs, activating DEBUG mode for the scanner, and adding client-side environment variables and system properties to the server-side log of analysis report processing.
             #-Dsonar.verbose= # optional, default is false
