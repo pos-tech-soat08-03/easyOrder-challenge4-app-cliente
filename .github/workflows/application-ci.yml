@@ -41,6 +41,7 @@ jobs:
       - name: Run tests with coverage
         run: npm test-coverage
 
+      # Step 7: Analisar com SonarCloud
       - name: Analyze with SonarCloud
 
         # You can pin the exact commit or the version.
