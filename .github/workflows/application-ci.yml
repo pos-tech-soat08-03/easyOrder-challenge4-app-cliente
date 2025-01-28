@@ -39,7 +39,7 @@ jobs:
 
       # Step 6: Executar testes
       - name: Run tests with coverage
-        run: npm test-coverage
+        run: npm run test-coverage
 
       # Step 7: Analisar com SonarCloud
       - name: Analyze with SonarCloud
