@@ -11,7 +11,7 @@ RUN chown -R appuser:appuser /app
 COPY package*.json ./
 
 # Instalação das dependências do projeto (contidas no package.json)
-RUN npm install
+RUN npm install --ignore-scripts
 
 USER appuser
 
