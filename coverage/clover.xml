@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1738026060143" clover="3.2.0">
+  <project timestamp="1738026060144" name="All files">
+    <metrics statements="15" coveredstatements="15" conditionals="5" coveredconditionals="5" methods="7" coveredmethods="7" elements="27" coveredelements="27" complexity="0" loc="15" ncloc="15" packages="1" files="2" classes="2"/>
+    <file name="CpfValueObject.ts" path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/easyorder/Core/Entity/ValueObject/CpfValueObject.ts">
+      <metrics statements="9" coveredstatements="9" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="9" count="6" type="cond" truecount="3" falsecount="0"/>
+      <line num="10" count="4" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="16" count="4" type="stmt"/>
+      <line num="17" count="4" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+    </file>
+    <file name="EmailValueObject.ts" path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/easyorder/Core/Entity/ValueObject/EmailValueObject.ts">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="9" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="10" count="5" type="cond" truecount="1" falsecount="0"/>
+      <line num="11" count="4" type="stmt"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="18" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>
