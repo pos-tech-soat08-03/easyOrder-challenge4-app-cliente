@@ -23,7 +23,7 @@ export class DefaultApiEndpoints {
         #swagger.tags = ['Outros']
         #swagger.ignore = true
       */
-        res.status(200).send(`<h1>EasyOrder API 3.0</h1><br>`)
+        res.status(200).send(`<h1>EasyOrder API 4.0 - Microserviço Clientes</h1><br>`)
     });
 
     app.get("/auth-result", (req, res) => {
