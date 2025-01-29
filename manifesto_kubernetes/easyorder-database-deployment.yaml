@@ -13,6 +13,7 @@ spec:
       labels:
         app: easyorder-database
     spec:
+      automountServiceAccountToken: false
       containers:
         - name: easyorder-database-container
           image: mysql:9.0.1
@@ -24,6 +25,7 @@ spec:
             requests:
               memory: "500Mi"
               cpu: "500m"
+              ephemeral-storage: "1Gi"
           ports:
             - containerPort: 3306
           volumeMounts:
