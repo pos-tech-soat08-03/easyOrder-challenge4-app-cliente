@@ -24,6 +24,11 @@ src                         - diretório principal com arquivos .tf
 
 ## Configuração do CI/CD
 
+### Quality Gate
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pos-tech-soat08-03_easyOrder-challenge4-app-cliente&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pos-tech-soat08-03_easyOrder-challenge4-app-cliente)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pos-tech-soat08-03_easyOrder-challenge4-app-cliente&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pos-tech-soat08-03_easyOrder-challenge4-app-cliente)
+
 O repositório possui um workflow de CI/CD configurado com o Github Actions, que realiza a validação e deploy da application na AWS.
 
 O workflow de CI é acionado a cada push no repositório, e executa as seguintes etapas:
