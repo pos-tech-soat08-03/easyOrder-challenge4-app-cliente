@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: easyorder-deployment
+  name: easyorder-app-client-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: easyorder
+      app: easyorder-app-client
   template:
     metadata:
-      name: easyorder
+      name: easyorder-app-client
       labels:
-        app: easyorder
+        app: easyorder-app-client
     spec:
       automountServiceAccountToken: false
       containers:
-      - name: easyorder-container
-        image: brunomoreirareis/easyorder-app-cliente:v1.0.0
+      - name: easyorder-app-client-container
+        image: brunomoreirareis/easyorder-app-cliente:latest
         resources:
           limits:
             memory: "1000Mi"
@@ -30,11 +30,11 @@ spec:
         - containerPort: 30000
         envFrom:
         - configMapRef:
-            name: easyorder-configmap
+            name: easyorder-app-client-configmap
             optional: true
         volumeMounts:
-        - name: easyorder-storage
+        - name: easyorder-app-client-storage
           mountPath: /data
       volumes:
-      - name: easyorder-storage
+      - name: easyorder-app-client-storage
         emptyDir: {}

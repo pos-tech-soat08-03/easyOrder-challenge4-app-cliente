@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: easyorder-database-deployment
+  name: easyorder-app-client-database-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: easyorder-database
+      app: easyorder-app-client-database
   template:
     metadata:
-      name: easyorder-database
+      name: easyorder-app-client-database
       labels:
-        app: easyorder-database
+        app: easyorder-app-client-database
     spec:
       automountServiceAccountToken: false
       containers:
-        - name: easyorder-database-container
+        - name: easyorder-app-client-database-container
           image: mysql:9.0.1
           resources:
             limits:
@@ -29,13 +29,13 @@ spec:
           ports:
             - containerPort: 3306
           volumeMounts:
-            - name: easyorder-database-persistent-storage
+            - name: easyorder-app-client-database-persistent-storage
               mountPath: /var/lib/mysql
           envFrom:
             - configMapRef:
-                name: easyorder-database-configmap
+                name: easyorder-app-client-database-configmap
                 optional: true
       volumes:
-        - name: easyorder-database-persistent-storage
+        - name: easyorder-app-client-database-persistent-storage
           persistentVolumeClaim:
-            claimName: pvc-easyorder-database
+            claimName: pvc-easyorder-app-client-database

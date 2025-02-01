@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-easyorder-database
+  name: pvc-easyorder-app-client--database
 spec:
   resources:
     requests:
