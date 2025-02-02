@@ -25,6 +25,7 @@ spec:
           requests:
             memory: "500Mi"
             cpu: "250m"
+            ephemeral-storage: "2Gi"
         ports:
         - containerPort: 3000
         envFrom:
