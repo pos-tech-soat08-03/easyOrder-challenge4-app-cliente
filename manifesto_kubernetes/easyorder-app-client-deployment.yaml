@@ -16,7 +16,7 @@ spec:
       automountServiceAccountToken: false
       containers:
       - name: easyorder-app-client-container
-        image: brunomoreirareis/easyorder-app-cliente:latest
+        image: brunomoreirareis/easyorder-app-client:latest
         resources:
           limits:
             memory: "1000Mi"
@@ -25,9 +25,9 @@ spec:
           requests:
             memory: "500Mi"
             cpu: "250m"
-            storage: "1Gi"
+            ephemeral-storage: "2Gi"
         ports:
-        - containerPort: 30000
+        - containerPort: 3000
         envFrom:
         - configMapRef:
             name: easyorder-app-client-configmap
