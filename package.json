@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --testLocationInResults --no-coverage --reporters default --colors --watchAll=false --testPathPattern src/test",
-    "test-coverage": "jest --testLocationInResults --coverage --colors --testPathPattern src/test",
+    "test-coverage": "jest --testLocationInResults --collectCoverage --testResultsProcessor=jest-sonar-reporter --colors --testPathPattern src/test",
     "start": "node dist/app.js",
     "build": "tsc",
     "start:dev": "npm install --save-dev; CHOKIDAR_USEPOLLING=true dotenv -- tsnd --transpile-only --respawn --ignore-watch node_modules src/app.ts",
@@ -29,7 +29,9 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.4",
     "@types/swagger-ui-express": "^4.1.6",
+    "jest-sonar-reporter": "^2.0.0",
     "nodemon": "^3.1.7",
+    "sonarqube-scanner": "^4.2.6",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1",
     "ts-node": "^10.9.2",
