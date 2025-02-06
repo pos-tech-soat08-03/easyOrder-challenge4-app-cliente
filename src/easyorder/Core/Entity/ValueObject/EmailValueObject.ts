@@ -7,7 +7,7 @@ export class EmailValueObject {
     constructor(value: string) {
 
         if (value) {
-            if (!RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).exec(value)) {
+            if (!RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).exec(value)) {
                 throw new Error('O email deve estar no formato a-z@az-.az');
             }
         }
