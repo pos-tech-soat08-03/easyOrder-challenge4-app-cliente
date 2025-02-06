@@ -66,7 +66,6 @@ jobs:
             -Dsonar.tests=./src/tests
             -Dsonar.test.inclusions=./src/tests/**/*.test.tsx,./src/tests/**/*.test.ts
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-            -Dsonar.testExecutionReportPaths=coverage/clover.xml
             # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
             # Adds more detail to both client and server-side analysis logs, activating DEBUG mode for the scanner, and adding client-side environment variables and system properties to the server-side log of analysis report processing.
             #-Dsonar.verbose= # optional, default is false
