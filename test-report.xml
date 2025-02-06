@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/tests/Core/Usecase/ClientesUsecases.test.ts">
+    <testCase name="Testes unitários ClientesUsecases ListarClientesUsecase Deve retornar uma lista de Clientes quando disponíveis" duration="12"/>
+    <testCase name="Testes unitários ClientesUsecases ListarClientesUsecase Deve retornar um Cliente quando disponível" duration="1"/>
+    <testCase name="Testes unitários ClientesUsecases ListarClientesUsecase Deve lançar um erro quando clientes não forem encontrados" duration="8"/>
+    <testCase name="Testes unitários ClientesUsecases BuscarClientePorCpfUsecase Deve retornar um cliente quando encontrado pelo CPF" duration="2"/>
+    <testCase name="Testes unitários ClientesUsecases BuscarClientePorCpfUsecase Deve lançar um erro quando cliente não for encontrado pelo CPF" duration="2"/>
+    <testCase name="Testes unitários ClientesUsecases AtualizarClientePorCpfUsecase Deve atualizar um cliente quando encontrado pelo CPF" duration="2"/>
+    <testCase name="Testes unitários ClientesUsecases AtualizarClientePorCpfUsecase Deve lançar um erro quando cliente não for encontrado para atualização" duration="2"/>
+    <testCase name="Testes unitários ClientesUsecases AtualizarClientePorCpfUsecase Deve lançar um erro quando atualização não for realizada" duration="2"/>
+    <testCase name="Testes unitários ClientesUsecases CadastrarClienteUsecase Deve lançar um erro quando cliente já estiver cadastrado com o mesmo CPF" duration="2"/>
+    <testCase name="Testes unitários ClientesUsecases CadastrarClienteUsecase Deve cadastrar um novo cliente quando CPF não estiver cadastrado" duration="2"/>
+    <testCase name="Testes unitários ClientesUsecases CadastrarClienteUsecase Deve lançar um erro quando o cadastro não for realizado" duration="1"/>
+  </file>
+  <file path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/tests/Application/Presenter/ClienteAdapter.test.ts">
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptClienteJsonError Deve retornar um JSON com mensagem de erro" duration="17"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptClienteJsonError adaptClienteJsonError Deve tratar mensagem de erro vazia" duration="1"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptClienteJsonError adaptClienteJsonError Deve tratar mensagem de erro null" duration="0"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptClienteJsonError adaptClienteJsonError Deve tratar mensagem de erro undefined" duration="1"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptJsonListaClientes adaptJsonListaClientes Deve formatar JSON com lista clientes e mensagem" duration="2"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptJsonListaClientes adaptJsonListaClientes Deve tratar lista vazia" duration="1"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptJsonListaClientes adaptJsonListaClientes Deve tratar lista null" duration="1"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptJsonListaClientes adaptJsonListaClientes Deve tratar lista undefined" duration="0"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptJsonCliente adaptJsonCliente Deve retornar JSON com cliente e mensagem" duration="1"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptJsonCliente adaptJsonCliente Deve tratar cliente null" duration="0"/>
+    <testCase name="Testes unitarios ClienteAdapter Testes unitarios adaptJsonCliente adaptJsonCliente Deve tratar cliente undefined" duration="1"/>
+  </file>
+  <file path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/tests/Application/Controller/ClientesController.test.ts">
+    <testCase name="Testes unitários ClientesController ListarClientes Deve retornar lista JSON de clientes formatada" duration="40"/>
+    <testCase name="Testes unitários ClientesController BuscarClientePorCpf Deve retornar JSON de cliente formatado" duration="1"/>
+    <testCase name="Testes unitários ClientesController AtualizarClientePorCpf Deve retornar JSON de cliente atualizado formatado" duration="2"/>
+    <testCase name="Testes unitários ClientesController CadastrarCliente Deve retornar JSON de cliente cadastrado formatado" duration="2"/>
+    <testCase name="Testes unitários ClientesController ListarClientes Deve retornar msg de erro quando cliente não foi listado" duration="1"/>
+    <testCase name="Testes unitários ClientesController BuscarClientePorCpf Deve retornar msg de erro quando cliente não foi encontrado" duration="7"/>
+    <testCase name="Testes unitários ClientesController AtualizarClientePorCpf Deve retornar msg de erro quando cliente não foi atualizado" duration="1"/>
+    <testCase name="Testes unitários ClientesController CadastrarCliente Deve retornar msg de erro quando cliente não foi criado" duration="5"/>
+  </file>
+  <file path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/tests/Core/Entity/ValueObject/CpfValueObject.test.ts">
+    <testCase name="Testes unitários CpfValueObject CpfValueObject constructor Deve criar um CPF válido" duration="2"/>
+    <testCase name="Testes unitários CpfValueObject CpfValueObject constructor Deve retornar erro se não tiver 11 caracteres" duration="4"/>
+    <testCase name="Testes unitários CpfValueObject CpfValueObject constructor Deve retornar erro se contém digitos não numéricos" duration="1"/>
+    <testCase name="Testes unitários CpfValueObject CpfValueObject constructor Deve retornar erro caso vazio" duration="1"/>
+    <testCase name="Testes unitários CpfValueObject formataCPF Deve formatar corretamente um CPF válido" duration="1"/>
+    <testCase name="Testes unitários CpfValueObject formataCPF deve lançar erro ao tentar formatar um CPF inválido" duration="1"/>
+  </file>
+  <file path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/tests/Infrastructure/DB/Mock/ClienteGatewayMock.test.ts">
+    <testCase name="ClienteGatewayMock listarClientes deve retornar todos os clientes" duration="1"/>
+    <testCase name="ClienteGatewayMock buscarClientePorCpf deve retornar o cliente correto" duration="1"/>
+    <testCase name="ClienteGatewayMock buscarClientePorCpf deve retornar undefined para CPF não existente" duration="2"/>
+    <testCase name="ClienteGatewayMock adicionarCliente deve adicionar um novo cliente" duration="1"/>
+    <testCase name="ClienteGatewayMock adicionarCliente não deve adicionar cliente com CPF duplicado" duration="2"/>
+    <testCase name="ClienteGatewayMock atualizarCliente deve atualizar cliente existente" duration="2"/>
+  </file>
+  <file path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/tests/Core/Entity/ClienteEntity.test.ts">
+    <testCase name="Testes unitários ClienteEntity ClienteEntity constructor Deve criar um cliente com id existente" duration="2"/>
+    <testCase name="Testes unitários ClienteEntity ClienteEntity constructor Deve criar um cliente com o id novo quando não especificado" duration="1"/>
+  </file>
+  <file path="/home/linuser/code/fiap-soat/easyOrder-challenge4-app-cliente/src/tests/Core/Entity/ValueObject/EmailValueObject.test.ts">
+    <testCase name="Testes unitários EmailValueObject EmailValueObject constructor Deve criar um email válido" duration="3"/>
+    <testCase name="Testes unitários EmailValueObject EmailValueObject constructor Deve retornar erro com formato inválido de email - email sem @" duration="4"/>
+    <testCase name="Testes unitários EmailValueObject EmailValueObject constructor Deve retornar erro com formato inválido de email - email sem domínio" duration="1"/>
+    <testCase name="Testes unitários EmailValueObject EmailValueObject constructor Deve retornar erro com formato inválido de email - email com espaço" duration="0"/>
+    <testCase name="Testes unitários EmailValueObject EmailValueObject constructor Deve retornar erro caso email seja vazio" duration="0"/>
+  </file>
+</testExecutions>
