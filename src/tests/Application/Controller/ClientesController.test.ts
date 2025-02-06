@@ -7,7 +7,7 @@ import { ClienteGatewayMock } from "../../../easyorder/Infrastructure/DB/Mock/Cl
 jest.mock("../../../easyorder/Core/Usecase/ClientesUsecases");
 jest.mock("../../../easyorder/Application/Presenter/ClienteAdapter");
 
-describe("ClientesController", () => {
+describe("Testes unitários ClientesController", () => {
     let dbConnection: IDbConnection;
 
     beforeEach(() => {
@@ -18,59 +18,59 @@ describe("ClientesController", () => {
         } as unknown as IDbConnection;
     });
 
-    test("ListarClientes - should return adapted JSON list of clients", async () => {
+    test("ListarClientes Deve retornar lista JSON de clientes formatada", async () => {
         const clientes = [{ id: "1", nome: "João", cpf: "12345678901", email: "joao@teste.com" }];
         const mensagem = "Clientes listados com sucesso";
         (ClientesUsecases.ListarClientesUsecase as jest.Mock).mockResolvedValue({ clientes, mensagem });
-        (ClienteAdapter.adaptJsonListaClientes as jest.Mock).mockReturnValue("adapted JSON list");
+        (ClienteAdapter.adaptJsonListaClientes as jest.Mock).mockReturnValue("lista JSON formatada");
 
         const result = await ClientesController.ListarClientes(dbConnection);
 
         expect(ClientesUsecases.ListarClientesUsecase).toHaveBeenCalledWith(dbConnection.gateways.clienteGateway);
         expect(ClienteAdapter.adaptJsonListaClientes).toHaveBeenCalledWith(clientes, mensagem);
-        expect(result).toBe("adapted JSON list");
+        expect(result).toBe("lista JSON formatada");
     });
 
-    test("BuscarClientePorCpf - should return adapted JSON client", async () => {
+    test("BuscarClientePorCpf Deve retornar JSON de cliente formatado", async () => {
         const cliente = { id: "1", nome: "João", cpf: "12345678901", email: "joao@teste.com" };
         const mensagem = "Cliente encontrado com sucesso";
         (ClientesUsecases.BuscarClientePorCpfUsecase as jest.Mock).mockResolvedValue({ cliente, mensagem });
-        (ClienteAdapter.adaptJsonCliente as jest.Mock).mockReturnValue("adapted JSON client");
+        (ClienteAdapter.adaptJsonCliente as jest.Mock).mockReturnValue("JSON cliente formatado");
 
         const result = await ClientesController.BuscarClientePorCpf(dbConnection, "12345678901");
 
         expect(ClientesUsecases.BuscarClientePorCpfUsecase).toHaveBeenCalledWith({ clienteGateway: dbConnection.gateways.clienteGateway, cpfTexto: "12345678901" });
         expect(ClienteAdapter.adaptJsonCliente).toHaveBeenCalledWith(cliente, mensagem);
-        expect(result).toBe("adapted JSON client");
+        expect(result).toBe("JSON cliente formatado");
     });
 
-    test("AtualizarClientePorCpf - should return adapted JSON updated client", async () => {
+    test("AtualizarClientePorCpf Deve retornar JSON de cliente atualizado formatado", async () => {
         const cliente = { id: "1", nome: "João Atualizado", cpf: "12345678901", email: "joao@teste.com" };
         const mensagem = "Cliente atualizado com sucesso";
         (ClientesUsecases.AtualizarClientePorCpfUsecase as jest.Mock).mockResolvedValue({ cliente, mensagem });
-        (ClienteAdapter.adaptJsonCliente as jest.Mock).mockReturnValue("adapted JSON updated client");
+        (ClienteAdapter.adaptJsonCliente as jest.Mock).mockReturnValue("JSON cliente formatado");
 
         const result = await ClientesController.AtualizarClientePorCpf(dbConnection, "12345678901", "João Atualizado", "joao@teste.com");
 
         expect(ClientesUsecases.AtualizarClientePorCpfUsecase).toHaveBeenCalledWith(dbConnection.gateways.clienteGateway, "12345678901", "João Atualizado", "joao@teste.com");
         expect(ClienteAdapter.adaptJsonCliente).toHaveBeenCalledWith(cliente, mensagem);
-        expect(result).toBe("adapted JSON updated client");
+        expect(result).toBe("JSON cliente formatado");
     });
 
-    test("CadastrarCliente - should return adapted JSON new client", async () => {
+    test("CadastrarCliente Deve retornar JSON de cliente cadastrado formatado", async () => {
         const cliente = { id: "1", nome: "João", cpf: "12345678901", email: "joao@teste.com" };
         const mensagem = "Cliente cadastrado com sucesso";
         (ClientesUsecases.CadastrarClienteUsecase as jest.Mock).mockResolvedValue({ cliente, mensagem });
-        (ClienteAdapter.adaptJsonCliente as jest.Mock).mockReturnValue("adapted JSON new client");
+        (ClienteAdapter.adaptJsonCliente as jest.Mock).mockReturnValue("JSON cliente formatado");
 
         const result = await ClientesController.CadastrarCliente(dbConnection, "12345678901", "João", "joao@teste.com");
 
         expect(ClientesUsecases.CadastrarClienteUsecase).toHaveBeenCalledWith(dbConnection.gateways.clienteGateway, "12345678901", "João", "joao@teste.com");
         expect(ClienteAdapter.adaptJsonCliente).toHaveBeenCalledWith(cliente, mensagem);
-        expect(result).toBe("adapted JSON new client");
+        expect(result).toBe("JSON cliente formatado");
     });
 
-    test("ListarClientes - should return error message when no clients are found", async () => {
+    test("ListarClientes Deve retornar msg de erro quando cliente não foi listado", async () => {
         const mensagem = "Nenhum cliente encontrado";
         (ClientesUsecases.ListarClientesUsecase as jest.Mock).mockResolvedValue({ clientes: [], mensagem });
         (ClienteAdapter.adaptClienteJsonError as jest.Mock).mockReturnValue("error JSON");
@@ -82,7 +82,7 @@ describe("ClientesController", () => {
         expect(result).toBe("error JSON");
     });
     
-    test("BuscarClientePorCpf - should return error message when client is not found", async () => {
+    test("BuscarClientePorCpf Deve retornar msg de erro quando cliente não foi encontrado", async () => {
         const mensagem = "Cliente não encontrado";
         (ClientesUsecases.BuscarClientePorCpfUsecase as jest.Mock).mockResolvedValue({ cliente: undefined, mensagem });
         (ClienteAdapter.adaptClienteJsonError as jest.Mock).mockReturnValue("error JSON");
@@ -94,7 +94,7 @@ describe("ClientesController", () => {
         expect(result).toBe("error JSON");
     });
     
-    test("AtualizarClientePorCpf - should return error message when client is not found", async () => {
+    test("AtualizarClientePorCpf Deve retornar msg de erro quando cliente não foi atualizado", async () => {
         const mensagem = "Cliente não encontrado";
         (ClientesUsecases.AtualizarClientePorCpfUsecase as jest.Mock).mockResolvedValue({ cliente: undefined, mensagem });
         (ClienteAdapter.adaptClienteJsonError as jest.Mock).mockReturnValue("error JSON");
@@ -106,7 +106,7 @@ describe("ClientesController", () => {
         expect(result).toBe("error JSON");
     });
 
-    test("CadastrarCliente - should return error message when client is not created", async () => {
+    test("CadastrarCliente Deve retornar msg de erro quando cliente não foi criado", async () => {
         const mensagem = "Erro ao cadastrar cliente";
         (ClientesUsecases.CadastrarClienteUsecase as jest.Mock).mockResolvedValue({ cliente: undefined, mensagem });
         (ClienteAdapter.adaptClienteJsonError as jest.Mock).mockReturnValue("error JSON");

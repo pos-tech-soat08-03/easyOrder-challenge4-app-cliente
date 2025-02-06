@@ -3,10 +3,10 @@ import { CpfValueObject } from './ValueObject/CpfValueObject';
 import { EmailValueObject } from './ValueObject/EmailValueObject';
 
 export class ClienteEntity {
-    private id: string;
-    private nome: string;
-    private cpf: CpfValueObject;
-    private email: EmailValueObject;
+    private readonly id: string;
+    private readonly nome: string;
+    private readonly cpf: CpfValueObject;
+    private readonly email: EmailValueObject;
 
     constructor(cpf: CpfValueObject, nome: string, email: EmailValueObject, id?: string) {
         this.cpf = cpf;

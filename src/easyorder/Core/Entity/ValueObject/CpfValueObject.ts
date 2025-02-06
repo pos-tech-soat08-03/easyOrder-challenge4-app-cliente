@@ -2,7 +2,7 @@
 
 export class CpfValueObject {
 
-    private value: string;
+    private readonly value: string;
 
     constructor(value: string) {
 
