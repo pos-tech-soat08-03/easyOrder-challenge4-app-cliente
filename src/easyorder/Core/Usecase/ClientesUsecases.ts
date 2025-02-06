@@ -26,7 +26,7 @@ export class ClientesUsecases {
         const cpfObjeto = new CpfValueObject(cpfTexto);
         const clienteAtual = await clienteGateway.buscarClientePorCpf(cpfObjeto);
         if (clienteAtual === undefined) {
-            return { cliente: undefined, mensagem: "Cliente não foi encontrado para atualização." };
+            throw new Error("Cliente não foi encontrado para atualização.");
         }
         const clienteNovo = new ClienteEntity(
             cpfObjeto,
@@ -38,7 +38,7 @@ export class ClientesUsecases {
         if (sucessoAtualizacao !== undefined) {
             return { cliente: clienteNovo, mensagem: `Cliente atualizado com sucesso.` };
         }
-        return { cliente: undefined, mensagem: "Erro: Atualização não foi realizada." };
+        return { cliente: undefined, mensagem: "Atualização não foi realizada." };
     }
 
     public static async CadastrarClienteUsecase (clienteGateway: ClienteGatewayInterface, cpfTexto: string, nome: string, email: string): Promise<{ cliente: ClienteEntity | undefined, mensagem: string }> {
@@ -46,7 +46,7 @@ export class ClientesUsecases {
         const emailObjeto = new EmailValueObject(email);
         const clienteAtual = await clienteGateway.buscarClientePorCpf(cpfObjeto);
         if (clienteAtual !== undefined) {
-            return { cliente: undefined, mensagem: "Cliente já cadastrado com esse CPF." };
+            throw new Error("Cliente já cadastrado com esse CPF.");
         }
         
         const clienteNovo = new ClienteEntity(cpfObjeto, nome, emailObjeto);
@@ -54,7 +54,7 @@ export class ClientesUsecases {
         if (sucessoCadastro !== undefined) {
             return { cliente: clienteNovo, mensagem: `Cliente cadastrado com sucesso.` };
         }
-        return { cliente: undefined, mensagem: "Erro: Cadatro não foi realizado." };
+        return { cliente: undefined, mensagem: "Cadastro não foi realizado." };
     }
 
 }

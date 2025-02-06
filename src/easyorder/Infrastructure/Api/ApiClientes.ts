@@ -1,11 +1,10 @@
-import { Express } from "express";
 import express from "express";
 import { IDbConnection } from "../../Core/Interfaces/IDbConnection";
 import { ClientesController } from "../../Application/Controller/ClientesController";
 
 export class ApiClientes {
 
-    static start(dbconnection: IDbConnection, app: Express): void {
+    static start(dbconnection: IDbConnection, app: express.Express): void {
 
         app.use(express.json());
 
@@ -20,35 +19,21 @@ export class ApiClientes {
                     #swagger.description = 'Realiza o Cadastro de um novo Cliente com dados fornecidos no corpo da requisição.<br>
                     - Retorna o Id de Cliente como chave para continuidade no Pedido.<br>
                     - Não é permitido o cadastro de mais de um cliente com o mesmo CPF.<br><br>
-                    [ Endpoint para integração ao sistema de autoatendimento ]
-                    '
-
+                    [ Endpoint para integração ao sistema de autoatendimento ]'
                     #swagger.produces = ["application/json"]  
-                    #swagger.parameters['body'] = { 
-                        in: 'body', 
-                        '@schema': { 
-                            "required": ["cpf", "nome", "email"], 
-                            "properties": { 
-                                "cpf": { 
-                                    "type": "string", 
-                                    "minLength": 11,
-                                    "maxLength": 11,
-                                    "example": "12345678909"
-                                },
-                                "nome": { 
-                                    "type": "string",
-                                    "minLength": 1,
-                                    "maxLength": 255,
-                                    "example": "Nome de Teste Sobrenome"
-                                },
-                                "email": { 
-                                    "type": "string",
-                                    "minLength": 1,
-                                    "maxLength": 255,
-                                    "example": "teste.email@email.com"
+
+                    #swagger.requestBody = {
+                        required: true,
+                        content: {
+                            "application/json": {
+                                schema: { $ref: "#/definitions/Cliente" },
+                                example: {
+                                    cpf: '12345678910',
+                                    nome: 'Nome do Cliente',
+                                    email: 'exemplo.email@dominio.com'
                                 }
                             }
-                        }
+                        }                  
                     }
                     #swagger.responses[200] = {
                         'description': 'Cliente cadastrado com sucesso',
@@ -62,25 +47,12 @@ export class ApiClientes {
                                     type: 'string',
                                     example: 'Cliente cadastrado com sucesso'
                                 },
-                                cliente: {
-                                    type: 'object',
-                                    properties: {
-                                        id: {
-                                            type: 'string',
-                                            example: '29a81eeb-d16d-4d6c-a86c-e13597667307'
-                                        },
-                                        nome: {
-                                            type: 'string',
-                                            example: 'João da Silva'
-                                        },
-                                        cpf: {
-                                            type: 'string',
-                                            example: '123.456.789-01'
-                                        },
-                                        email: {
-                                            type: 'string',
-                                            example: 'teste@teste.com'
-                                        }
+                                cliente: { 
+                                    example: {
+                                        id: 'c8076edc-b7ce-4cc6-803f-f3466ef434aa',
+                                        cpf: '123.456.789-10',
+                                        nome: 'Nome do Cliente',
+                                        email: 'exemplo.email@dominio.com'
                                     }
                                 }
                             }
@@ -92,25 +64,22 @@ export class ApiClientes {
                             'properties': {
                                 mensagem: {
                                     type: 'string',
-                                    example: 'Erro inesperado: Não foi possível cadastrar o cliente'
+                                    example: 'Erro: Não foi possível cadastrar o cliente'
                                 }
                             }
                         }
                     }
-                    #swagger.authorization = {
-                        permission: 'public'
-                    }
                 */
                 try {
                     if (req.body === undefined || Object.keys(req.body).length === 0) {
-                        throw new Error("Nenhum dado informado.");
+                        throw new Error("Erro: Nenhum dado informado.");
                     }
                     const { cpf, nome, email } = req.body;
                     const clientePayload = await ClientesController.CadastrarCliente(dbconnection, cpf, nome, email);
                     res.send(clientePayload); 
                 }
                 catch (error: any) {
-                    res.send(error.message);
+                    res.status(400).send("Erro: " + error.message);
                 }
             }
         );
