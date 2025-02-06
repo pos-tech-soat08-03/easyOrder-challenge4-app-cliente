@@ -62,9 +62,9 @@ jobs:
             -Dsonar.organization=pos-tech-soat08-03
             # Comma-separated paths to directories containing main source files.
             -Dsonar.sources=./src
+            -Dsonar.exclusions=**/tests/**
             -Dsonar.tests=./src/tests
-            -Dsonar.exclusions=./src/tests
-            # Comma-separated paths to directories containing test source files.
+            -Dsonar.test.inclusions=./src/tests/**/*.test.tsx,./src/tests/**/*.test.ts
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.testExecutionReportPaths=coverage/clover.xml
             # optional. For more info about Code Coverage, please refer to https://docs.sonarcloud.io/enriching/test-coverage/overview/
