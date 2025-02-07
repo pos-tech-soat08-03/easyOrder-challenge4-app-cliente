@@ -48,16 +48,6 @@ export class ClienteGatewayMock implements ClienteGatewayInterface {
     return cliente;
   }
 
-  // public async removerCliente(cliente: ClienteEntity): Promise<boolean> {
-  //   if (this.buscarClientePorCpf(cliente.getCpf()) == undefined) {
-  //     return false;
-  //   }
-  //   this.clientes.filter((cliente_unit) => {
-  //     cliente_unit.getCpf() !== cliente.getCpf();
-  //   });
-  //   return true;
-  // }
-
   public async atualizarCliente(
     cliente: ClienteEntity,
     novoCliente: ClienteEntity
