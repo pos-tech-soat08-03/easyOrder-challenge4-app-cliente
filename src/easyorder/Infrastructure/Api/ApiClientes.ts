@@ -251,6 +251,38 @@ export class ApiClientes {
                         type: 'string',
                         example: '12345678910'
                     }
+                    #swagger.responses[200] = {
+                        'description': 'Cliente encontrado.',
+                        '@schema': {
+                            properties: {
+                                mensagem: {
+                                    type: 'string',
+                                    example: 'Cliente encontrado.'
+                                },
+                                cliente: { 
+                                    example: {
+                                        id: 'c8076edc-b7ce-4cc6-803f-f3466ef434aa',
+                                        cpf: '123.456.789-10',
+                                        nome: 'Nome Atualizado',
+                                        email: 'exemplo.atualizado@dominio.com'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #swagger.responses[400] = {
+                        'description': 'Ocorreu um erro inesperado',
+                        '@schema': {
+                            'properties': {
+                                mensagem: {
+                                    type: 'string',
+                                    example: 'Erro: Cliente não encontrado.'
+                                }
+                            }
+                        }
+                    }
+
+
                 */
                 try {
                     const cpfBusca: string = req.params.cpf;

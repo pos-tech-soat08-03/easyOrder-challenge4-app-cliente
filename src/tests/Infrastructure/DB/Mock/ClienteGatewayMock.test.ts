@@ -65,4 +65,29 @@ describe("ClienteGatewayMock", () => {
     expect(clienteAtualizado?.getNome()).toBe("João Atualizado");
   });
 
+  test("atualizarCliente deve manter o mesmo CPF", async () => {
+    const cliente = await clienteGatewayMock.buscarClientePorCpf(new CpfValueObject("41452032408"));
+    const novoCliente = new ClienteEntity(
+      new CpfValueObject("41452032408"),
+      "João Atualizado",
+      new EmailValueObject("joao.atualizado@teste.com")
+    );
+    const clienteAtualizado = await clienteGatewayMock.atualizarCliente(cliente!, novoCliente);
+    expect(clienteAtualizado).toBeDefined();
+    expect(clienteAtualizado?.getCpf().getValue()).toBe("41452032408");
+  });
+
+  test("atualizarCliente deve atualizar o nome e email do cliente", async () => {
+    const cliente = await clienteGatewayMock.buscarClientePorCpf(new CpfValueObject("04462220030"));
+    const novoCliente = new ClienteEntity(
+      new CpfValueObject("04462220030"),
+      "Maria Atualizada",
+      new EmailValueObject("maria.atualizada@teste.com")
+    );
+    const clienteAtualizado = await clienteGatewayMock.atualizarCliente(cliente!, novoCliente);
+    expect(clienteAtualizado).toBeDefined();
+    expect(clienteAtualizado?.getNome()).toBe("Maria Atualizada");
+    expect(clienteAtualizado?.getEmail().getValue()).toBe("maria.atualizada@teste.com");
+  });
+
 });
