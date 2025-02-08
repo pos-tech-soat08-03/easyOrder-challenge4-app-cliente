@@ -3,9 +3,10 @@ import { ClienteEntity } from "../../../easyorder/Core/Entity/ClienteEntity";
 import { CpfValueObject } from "../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
 import { EmailValueObject } from "../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
 
-describe("ClienteAdapter", () => {
-  describe("adaptClienteJsonError", () => {
-    it("should return a JSON string with the error message", () => {
+describe("Testes unitarios ClienteAdapter", () => {
+
+  describe("Testes unitarios adaptClienteJsonError", () => {
+    it("Deve retornar um JSON com mensagem de erro", () => {
       const mensagem = "Erro ao processar a solicitação";
       const result = ClienteAdapter.adaptClienteJsonError(mensagem);
       const expected = JSON.stringify({ message: mensagem });
@@ -13,7 +14,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle empty error message", () => {
+    it("adaptClienteJsonError Deve tratar mensagem de erro vazia", () => {
       const mensagem = "";
       const result = ClienteAdapter.adaptClienteJsonError(mensagem);
       const expected = JSON.stringify({ message: mensagem });
@@ -21,7 +22,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle null error message", () => {
+    it("adaptClienteJsonError Deve tratar mensagem de erro null", () => {
       const mensagem = null;
       const result = ClienteAdapter.adaptClienteJsonError(mensagem);
       const expected = JSON.stringify({ message: mensagem });
@@ -29,7 +30,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle undefined error message", () => {
+    it("adaptClienteJsonError Deve tratar mensagem de erro undefined", () => {
       const mensagem = undefined;
       const result = ClienteAdapter.adaptClienteJsonError(mensagem);
       const expected = JSON.stringify({ message: mensagem });
@@ -38,8 +39,9 @@ describe("ClienteAdapter", () => {
     });
   });
 
-  describe("adaptJsonListaClientes", () => {
-    it("should return a JSON string with the list of clients and message", () => {
+  describe("Testes unitarios adaptJsonListaClientes", () => {
+
+    it("adaptJsonListaClientes Deve formatar JSON com lista clientes e mensagem", () => {
       const clientes = [
         new ClienteEntity(new CpfValueObject("12345678900"), "John Doe", new EmailValueObject("john.doe@example.com"), "1"),
         new ClienteEntity(new CpfValueObject("98765432100"), "Jane Doe", new EmailValueObject("jane.doe@example.com"), "2")
@@ -67,7 +69,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle empty client list", () => {
+    it("adaptJsonListaClientes Deve tratar lista vazia", () => {
       const clientes: ClienteEntity[] = [];
       const mensagem = "Nenhum cliente encontrado";
       const result = ClienteAdapter.adaptJsonListaClientes(clientes, mensagem);
@@ -79,7 +81,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle null client list", () => {
+    it("adaptJsonListaClientes Deve tratar lista null", () => {
       const clientes: ClienteEntity[] = [];
       const mensagem = "Nenhum cliente encontrado";
       const result = ClienteAdapter.adaptJsonListaClientes(clientes, mensagem);
@@ -91,7 +93,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle undefined client list", () => {
+    it("adaptJsonListaClientes Deve tratar lista undefined", () => {
       const clientes: ClienteEntity[] = [];
       const mensagem = "Nenhum cliente encontrado";
       const result = ClienteAdapter.adaptJsonListaClientes(clientes, mensagem);
@@ -103,8 +105,10 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
   });
-  describe("adaptJsonCliente", () => {
-    it("should return a JSON string with the client and message", () => {
+
+  describe("Testes unitarios adaptJsonCliente", () => {
+    
+    it("adaptJsonCliente Deve retornar JSON com cliente e mensagem", () => {
       const cliente = new ClienteEntity(new CpfValueObject("12345678900"), "John Doe", new EmailValueObject("john.doe@example.com"), "1");
       const mensagem = "Cliente encontrado";
       const result = cliente ? ClienteAdapter.adaptJsonCliente(cliente, mensagem) : JSON.stringify({ mensagem: mensagem, cliente: undefined }, null, 2);
@@ -121,7 +125,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle null client", () => {
+    it("adaptJsonCliente Deve tratar cliente null", () => {
       const cliente = null;
       const mensagem = "Cliente não encontrado";
       const result = cliente ? ClienteAdapter.adaptJsonCliente(cliente, mensagem) : JSON.stringify({ mensagem: mensagem, cliente: null }, null, 2);
@@ -133,7 +137,7 @@ describe("ClienteAdapter", () => {
       expect(result).toBe(expected);
     });
 
-    it("should handle undefined client", () => {
+    it("adaptJsonCliente Deve tratar cliente undefined", () => {
       const cliente = undefined;
       const mensagem = "Cliente não encontrado";
       const result = cliente ? ClienteAdapter.adaptJsonCliente(cliente, mensagem) : JSON.stringify({ mensagem: mensagem, cliente: undefined }, null, 2);

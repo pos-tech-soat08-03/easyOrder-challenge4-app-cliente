@@ -6,7 +6,7 @@ import { EmailValueObject } from '../../../easyorder/Core/Entity/ValueObject/Ema
 
 jest.mock('uuid');
 
-describe('ClienteEntity', () => {
+describe('Testes unitários ClienteEntity', () => {
     const mockCpf = new CpfValueObject('12345678900');
     const mockEmail = new EmailValueObject('teste@example.com');
     const mockNome = 'John Doe';
@@ -15,8 +15,8 @@ describe('ClienteEntity', () => {
         jest.clearAllMocks();
     });
 
-    it('deve criar um cliente com o id existente', () => {
-        const mockId = 'id-existente-xyz-1234';
+    it('ClienteEntity constructor Deve criar um cliente com id existente', () => {
+        const mockId = uuidv4();
         const cliente = new ClienteEntity(mockCpf, mockNome, mockEmail, mockId);
 
         expect(cliente.getId()).toBe(mockId);
@@ -25,11 +25,10 @@ describe('ClienteEntity', () => {
         expect(cliente.getEmail()).toBe(mockEmail);
     });
 
-    it('deve criar um cliente com o id novo quando não especificado', () => {
+    it('ClienteEntity constructor Deve criar um cliente com o id novo quando não especificado', () => {
         const mockGeneratedId = 'id-novo-xyz-1234';
         (uuidv4 as jest.Mock).mockReturnValue(mockGeneratedId);
         
-
         const cliente = new ClienteEntity(mockCpf, mockNome, mockEmail);
 
         expect(cliente.getId()).toBe(mockGeneratedId);
@@ -37,6 +36,5 @@ describe('ClienteEntity', () => {
         expect(cliente.getNome()).toBe(mockNome);
         expect(cliente.getEmail()).toBe(mockEmail);
     });
-
 
 });
