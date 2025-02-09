@@ -9,7 +9,8 @@
     "start": "node dist/app.js",
     "build": "tsc",
     "start:dev": "npm install --save-dev; CHOKIDAR_USEPOLLING=true dotenv -- tsnd --transpile-only --respawn --ignore-watch node_modules src/app.ts",
-    "start-gendoc": "node src/swagger.ts"
+    "start-gendoc": "node src/swagger.ts",
+    "sonar": "node sonar-config.ts"
   },
   "keywords": [],
   "author": "Grupo 3 SOAT8",

@@ -17,6 +17,8 @@ local/
 # Definições de execução local
 docker-compose.override.yml
 *.fake.*
+sonar-config.js
 
 # Arquivos de cobertura
 coverage/
+.sonar*
