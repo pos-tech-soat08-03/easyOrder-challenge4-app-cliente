@@ -91,7 +91,7 @@ jobs:
             NODE_ENV: development
             DATABASE_HOST: "svc-easyorder-app-client-database"
             DATABASE_PORT: "${{ secrets.MYSQL_PORT}}"
-            DATABASE_NAME: "${{ secrets.MYSQL_DATABASE }}"
+            DATABASE_NAME: "${{ secrets.MYSQL_DATABASE }}-CLIENTE"
             DATABASE_USER: "${{ secrets.MYSQL_USER }}"
             DATABASE_PASS: "${{ secrets.MYSQL_PASSWORD }}"
           EOF
