@@ -2,7 +2,7 @@
   "name": "easyorder-app-cliente",
   "version": "4.0.0",
   "description": "easyOrder: Aplicação Tech Challenge POS TECH SOAT8 FIAP - Microserviço Cliente",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {
     "test": "jest --testLocationInResults --colors",
     "test-coverage": "jest --testLocationInResults --coverage=true --reporters=default --colors --verbose ./src/tests",
@@ -10,7 +10,7 @@
     "build": "tsc",
     "start:dev": "npm install --save-dev; CHOKIDAR_USEPOLLING=true dotenv -- tsnd --transpile-only --respawn --ignore-watch node_modules src/app.ts",
     "start-gendoc": "node src/swagger.ts",
-    "sonar": "node sonar-config.ts"
+    "sonar": "node sonar-config.js"
   },
   "keywords": [],
   "author": "Grupo 3 SOAT8",
@@ -18,6 +18,7 @@
   "dependencies": {
     "@types/jest": "^29.5.13",
     "@types/supertest": "^6.0.2",
+    "aws-sdk": "^2.1692.0",
     "axios": "^1.7.3",
     "dotenv-cli": "^7.4.1",
     "express": "^4.19.2",
