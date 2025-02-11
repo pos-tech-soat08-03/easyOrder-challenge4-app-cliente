@@ -31,8 +31,7 @@ export class AWSApiConfigService {
         throw new Error(`Failed to fetch object body from S3 for key: ${key}`);
       }
       
-      const parsed = JSON.parse(str);
-      return parsed.outputs;
+      return JSON.parse(str).outputs;
       
     } catch (caught) {
       if (caught instanceof NoSuchKey) {

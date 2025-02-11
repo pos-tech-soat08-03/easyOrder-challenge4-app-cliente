@@ -38,12 +38,13 @@ const sessionToken = process.env.AWS_SESSION_TOKEN ?? "ERROR";
 
 const fetchAWSConfigService = new AWSApiConfigService(region, accessKeyId, secretAccessKey, sessionToken);
 
-const outputsS3Infra = fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_infra);
-const outputsS3Serverless = fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_serverless);
-
-console.log("Outputs S3 Infra: ", outputsS3Infra);
-console.log("Outputs S3 Serverless: ", outputsS3Serverless);
-
+async function fetchConfigs() {
+  const outputsS3Infra = await fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_infra);
+  console.log("Outputs S3 Infra: ", outputsS3Infra);
+  const outputsS3Serverless = await fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_serverless);
+  console.log("Outputs S3 Serverless: ", outputsS3Serverless);
+}
+fetchConfigs();
 
 // Inicialização do Express server
 app.listen(port, () => {
