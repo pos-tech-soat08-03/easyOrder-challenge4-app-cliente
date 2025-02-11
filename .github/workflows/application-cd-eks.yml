@@ -138,14 +138,8 @@ jobs:
     
     - name: Salvar Informações no S3
       run: |
-        # Create JSON object with Load Balancer details
-        LB_DETAILS=$(jq -n \
-          --arg hostname "${{ steps.get-load-balancer-hostname.outputs.LB_HOSTNAME }}" \
-          --arg port "${{ steps.get-load-balancer-port.outputs.LB_PORT }}" \
-          '{load_balancer: {hostname: $hostname, port: $port}}')
-
-        # Append the Load Balancer details to the existing terraform.tfstate file
-        jq ". + $LB_DETAILS" terraform_infrastructure.json > updated_terraform_infrastructure.json
-
-        # Upload the updated terraform.tfstate file back to S3
-        aws s3 cp updated_terraform_infrastructure.json s3://${{ github.event.inputs.aws_backend_bucket }}/easyorder-infra/terraform.tfstate
+        echo '{' > easyorder-app-client.json
+        echo '  "LoadBalancerHostname": "${{ steps.get-load-balancer-hostname.outputs.LB_HOSTNAME }}",' >> easyorder-app-client.json
+        echo '  "LoadBalancerPort": "${{ steps.get-load-balancer-port.outputs.LB_PORT }}"' >> easyorder-app-client.json
+        echo '}' >> easyorder-app-client.json
+        aws s3 cp easyorder-app-client.json s3://${{ github.event.inputs.aws_backend_bucket }}/easyorder-app-client.json
