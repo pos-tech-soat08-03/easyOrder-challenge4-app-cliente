@@ -34,8 +34,10 @@ const key_serverless = process.env.TERRAFORM_SERVERLESS_KEY ?? "ERROR";
 const region = process.env.AWS_REGION ?? "ERROR";
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID ?? "ERROR";
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? "ERROR";
+const sessionToken = process.env.AWS_SESSION_TOKEN ?? "ERROR";
 
-const fetchAWSConfigService = new AWSApiConfigService(region, accessKeyId, secretAccessKey);
+const fetchAWSConfigService = new AWSApiConfigService(region, accessKeyId, secretAccessKey, sessionToken);
+
 const outputsS3Infra = fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_infra);
 const outputsS3Serverless = fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_serverless);
 
