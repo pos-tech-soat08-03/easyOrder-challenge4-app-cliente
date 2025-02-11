@@ -3,7 +3,7 @@ const scanner = require('sonarqube-scanner').default;
 scanner(
   {
     serverUrl: 'https://sonarcloud.io',
-    token: '785d73cf7fa74951804f4741ec1219de9307f137',
+    token: '<inserir token do sonarcloud>',
     options: {
       'sonar.projectKey': 'pos-tech-soat08-03_easyOrder-challenge4-app-cliente',
       'sonar.organization' : 'pos-tech-soat08-03',
