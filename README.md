@@ -11,6 +11,16 @@ Este repositório contém a implementação do microserviço de clientes da apli
 - Documentação detalhada sobre a aplicação e a infraestrutura.
 - Instruções para execução da aplicação.
 
+## Quality Gate
+
+No processo de validação de CI/CD no GitHub, o Quality Gate é um conjunto de critérios que uma aplicação deve atender antes de ser implantada em produção. Ele é amplamente utilizado para garantir que apenas código de alta qualidade seja integrado ao projeto principal.
+
+O Quality Gate é um mecanismo que impede que código de baixa qualidade seja mesclado no repositório principal. Ele pode incluir verificações automáticas, como análise de código estático, cobertura de testes, conformidade com padrões de segurança e validação de qualidade de software.
+
+No GitHub, isso é geralmente implementado através de GitHub Actions combinadas com ferramentas de análise como SonarQube, CodeQL, ESLint, Jest, e outras.
+
+O repositório possui um workflow de CI/CD configurado com o Github Actions, que realiza a validação e deploy da application na AWS.
+
 ## Quality Gate - SonarCloud
 
 O repositório possui a integração com SonarCloud, que avalia qualidade de código e indica a cobertura geral de testes da aplicação.
@@ -21,9 +31,13 @@ O Projeto no SonarCloud pode ser acessado em:
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pos-tech-soat08-03_easyOrder-challenge4-app-cliente&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pos-tech-soat08-03_easyOrder-challenge4-app-cliente)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pos-tech-soat08-03_easyOrder-challenge4-app-cliente&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pos-tech-soat08-03_easyOrder-challenge4-app-cliente)
 
+## Cobertura de Testes
+
+-------------- Inserir info sobre cobertura de testes ---------------
+
 ## Roteiro de Testes BDD
 
-!!!!!!!!!!!INSERIR INFO SOBRE ROTEIRO DE TESTES BDD!!!!!!!!!!!!!!!!!!!!!!
+-------------- Inserir info sobre roteiro de testes BDD ---------------
 
 ## Configuração do CI/CD
 

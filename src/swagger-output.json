@@ -416,20 +416,6 @@
           }
         }
       }
-    },
-    "/health": {
-      "get": {
-        "tags": [
-          "Outros"
-        ],
-        "summary": "Health check",
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
     }
   },
   "components": {

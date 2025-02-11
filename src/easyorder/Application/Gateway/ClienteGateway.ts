@@ -13,9 +13,9 @@ class LocalModel extends Model {
 }
 
 export class ClienteGateway implements ClienteGatewayInterface {
-  private sequelize: Sequelize;
+  private readonly sequelize: Sequelize;
 
-  constructor(private dbconnection: ConnectionInfo) {
+  constructor(private readonly dbconnection: ConnectionInfo, sequelize: Sequelize) {
     this.sequelize = new Sequelize(
       this.dbconnection.database,
       this.dbconnection.username,
