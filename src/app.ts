@@ -27,24 +27,24 @@ DefaultApiEndpoints.start(app);
 ApiClientes.start(mysqlConnection, app);
 
 // Buscar configurações do Terraform no S3
-const bucketName = process.env.TERRAFORM_BUCKET_NAME ?? "ERROR";
-const key_infra = process.env.TERRAFORM_INFRA_KEY ?? "ERROR";
-const key_serverless = process.env.TERRAFORM_SERVERLESS_KEY ?? "ERROR";
+// const bucketName = process.env.TERRAFORM_BUCKET_NAME ?? "ERROR";
+// const key_infra = process.env.TERRAFORM_INFRA_KEY ?? "ERROR";
+// const key_serverless = process.env.TERRAFORM_SERVERLESS_KEY ?? "ERROR";
 
-const region = process.env.AWS_REGION ?? "ERROR";
-const accessKeyId = process.env.AWS_ACCESS_KEY_ID ?? "ERROR";
-const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? "ERROR";
-const sessionToken = process.env.AWS_SESSION_TOKEN ?? "ERROR";
+// const region = process.env.AWS_REGION ?? "ERROR";
+// const accessKeyId = process.env.AWS_ACCESS_KEY_ID ?? "ERROR";
+// const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? "ERROR";
+// const sessionToken = process.env.AWS_SESSION_TOKEN ?? "ERROR";
 
-const fetchAWSConfigService = new AWSApiConfigService(region, accessKeyId, secretAccessKey, sessionToken);
+// const fetchAWSConfigService = new AWSApiConfigService(region, accessKeyId, secretAccessKey, sessionToken);
 
-async function fetchConfigs() {
-  const outputsS3Infra = await fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_infra);
-  console.log("Outputs S3 Infra: ", outputsS3Infra);
-  const outputsS3Serverless = await fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_serverless);
-  console.log("Outputs S3 Serverless: ", outputsS3Serverless);
-}
-fetchConfigs();
+// async function fetchConfigs() {
+//   const outputsS3Infra = await fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_infra);
+//   console.log("Outputs S3 Infra: ", outputsS3Infra);
+//   const outputsS3Serverless = await fetchAWSConfigService.fetchS3OutputConfigs(bucketName, key_serverless);
+//   console.log("Outputs S3 Serverless: ", outputsS3Serverless);
+// }
+// fetchConfigs();
 
 // Inicialização do Express server
 app.listen(port, () => {
