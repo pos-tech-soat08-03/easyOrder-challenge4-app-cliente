@@ -138,7 +138,7 @@ jobs:
     
     - name: Salvar Informações no S3
       run: |
-        echo '{' > easyorder-app-client.json
+        echo '{' > easyorder-app-cliente.json
         echo '  "lb_hostname": "${{ steps.get-load-balancer-hostname.outputs.LB_HOSTNAME }}",' >> easyorder-app-cliente.json
         echo '  "lb_port": "${{ steps.get-load-balancer-port.outputs.LB_PORT }}"' >> easyorder-app-cliente.json
         echo '}' >> easyorder-app-cliente.json
