@@ -8,16 +8,6 @@ export class DefaultApiEndpoints {
 
     app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerOutput));
 
-    app.get("/health", (req, res) => {
-      /**
-        #swagger.tags = ['Outros']
-        #swagger.summary = 'Health check'
-      */
-      res.json({
-        status: "UP",
-      });
-    });
-
     app.get("/", (req, res) => {
       /**
         #swagger.tags = ['Outros']

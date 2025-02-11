@@ -349,24 +349,70 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Cliente encontrado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "mensagem": {
+                      "type": "string",
+                      "example": "Cliente encontrado."
+                    },
+                    "cliente": {
+                      "example": {
+                        "id": "c8076edc-b7ce-4cc6-803f-f3466ef434aa",
+                        "cpf": "123.456.789-10",
+                        "nome": "Nome Atualizado",
+                        "email": "exemplo.atualizado@dominio.com"
+                      }
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "properties": {
+                    "mensagem": {
+                      "type": "string",
+                      "example": "Cliente encontrado."
+                    },
+                    "cliente": {
+                      "example": {
+                        "id": "c8076edc-b7ce-4cc6-803f-f3466ef434aa",
+                        "cpf": "123.456.789-10",
+                        "nome": "Nome Atualizado",
+                        "email": "exemplo.atualizado@dominio.com"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
-            "description": "Solicitação Inválida"
-          }
-        }
-      }
-    },
-    "/health": {
-      "get": {
-        "tags": [
-          "Outros"
-        ],
-        "summary": "Health check",
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
+            "description": "Ocorreu um erro inesperado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "mensagem": {
+                      "type": "string",
+                      "example": "Erro: Cliente não encontrado."
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "properties": {
+                    "mensagem": {
+                      "type": "string",
+                      "example": "Erro: Cliente não encontrado."
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
