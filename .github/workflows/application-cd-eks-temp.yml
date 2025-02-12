@@ -105,7 +105,7 @@ jobs:
         metadata:
           name: easyorder-app-client-database-configmap
         data:
-          MYSQL_DATABASE: "${{ secrets.MYSQL_DATABASE }}"
+          MYSQL_DATABASE: "${{ secrets.MYSQL_DATABASE }}-CLIENTE"
           MYSQL_USER: "${{ secrets.MYSQL_USER }}"
           MYSQL_PASSWORD: "${{ secrets.MYSQL_PASSWORD }}"
           MYSQL_ROOT_PASSWORD: "${{ secrets.MYSQL_ROOT_PASSWORD }}"
