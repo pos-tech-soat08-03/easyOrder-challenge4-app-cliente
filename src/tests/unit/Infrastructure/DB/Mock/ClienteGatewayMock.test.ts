@@ -1,7 +1,7 @@
-import { ClienteGatewayMock } from "../../../../easyorder/Infrastructure/DB/Mock/ClienteGatewayMock";
-import { ClienteEntity } from "../../../../easyorder/Core/Entity/ClienteEntity";
-import { CpfValueObject } from "../../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
-import { EmailValueObject } from "../../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
+import { ClienteGatewayMock } from "../../../../../easyorder/Infrastructure/DB/Mock/ClienteGatewayMock";
+import { ClienteEntity } from "../../../../../easyorder/Core/Entity/ClienteEntity";
+import { CpfValueObject } from "../../../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
+import { EmailValueObject } from "../../../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
 
 describe("ClienteGatewayMock", () => {
   let clienteGatewayMock: ClienteGatewayMock;

@@ -1,8 +1,8 @@
-import { ClientesUsecases } from "../../../easyorder/Core/Usecase/ClientesUsecases";
-import { ClienteGatewayInterface } from "../../../easyorder/Core/Interfaces/Gateway/ClienteGatewayInterface";
-import { ClienteEntity } from "../../../easyorder/Core/Entity/ClienteEntity";
-import { CpfValueObject } from "../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
-import { EmailValueObject } from "../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
+import { ClientesUsecases } from "../../../../easyorder/Core/Usecase/ClientesUsecases";
+import { ClienteGatewayInterface } from "../../../../easyorder/Core/Interfaces/Gateway/ClienteGatewayInterface";
+import { ClienteEntity } from "../../../../easyorder/Core/Entity/ClienteEntity";
+import { CpfValueObject } from "../../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
+import { EmailValueObject } from "../../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
 
 describe("Testes unitários ClientesUsecases", () => {
     let clienteGatewayMock: jest.Mocked<ClienteGatewayInterface>;

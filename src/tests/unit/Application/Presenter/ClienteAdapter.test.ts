@@ -1,7 +1,7 @@
-import { ClienteAdapter } from "../../../easyorder/Application/Presenter/ClienteAdapter";
-import { ClienteEntity } from "../../../easyorder/Core/Entity/ClienteEntity";
-import { CpfValueObject } from "../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
-import { EmailValueObject } from "../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
+import { ClienteAdapter } from "../../../../easyorder/Application/Presenter/ClienteAdapter";
+import { ClienteEntity } from "../../../../easyorder/Core/Entity/ClienteEntity";
+import { CpfValueObject } from "../../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
+import { EmailValueObject } from "../../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
 
 describe("Testes unitarios ClienteAdapter", () => {
 
