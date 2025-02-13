@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize";
-import { ClienteGateway } from "../../../easyorder/Application/Gateway/ClienteGateway";
-import { ClienteEntity } from "../../../easyorder/Core/Entity/ClienteEntity";
-import { CpfValueObject } from "../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
-import { EmailValueObject } from "../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
-import { ConnectionInfo } from "../../../easyorder/Core/Types/ConnectionInfo";
+import { ClienteGateway } from "../../../../easyorder/Application/Gateway/ClienteGateway";
+import { ClienteEntity } from "../../../../easyorder/Core/Entity/ClienteEntity";
+import { CpfValueObject } from "../../../../easyorder/Core/Entity/ValueObject/CpfValueObject";
+import { EmailValueObject } from "../../../../easyorder/Core/Entity/ValueObject/EmailValueObject";
+import { ConnectionInfo } from "../../../../easyorder/Core/Types/ConnectionInfo";
 
 jest.mock("sequelize");
 

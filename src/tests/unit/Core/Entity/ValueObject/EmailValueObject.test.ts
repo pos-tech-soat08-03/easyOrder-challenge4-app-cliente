@@ -1,4 +1,4 @@
-import { EmailValueObject } from '../../../../easyorder/Core/Entity/ValueObject/EmailValueObject';
+import { EmailValueObject } from '../../../../../easyorder/Core/Entity/ValueObject/EmailValueObject';
 
 describe('Testes unitários EmailValueObject', () => {
 

@@ -1,10 +1,10 @@
 import express from "express";
 import request from "supertest";
-import { ApiClientes } from "../../../easyorder/Infrastructure/Api/ApiClientes";
-import { IDbConnection } from "../../../easyorder/Core/Interfaces/IDbConnection";
-import { ClientesController } from "../../../easyorder/Application/Controller/ClientesController";
+import { ApiClientes } from "../../../../easyorder/Infrastructure/Api/ApiClientes";
+import { IDbConnection } from "../../../../easyorder/Core/Interfaces/IDbConnection";
+import { ClientesController } from "../../../../easyorder/Application/Controller/ClientesController";
 
-jest.mock("../../../easyorder/Application/Controller/ClientesController");
+jest.mock("../../../../easyorder/Application/Controller/ClientesController");
 
 describe("Testes Unitários ApiClientes", () => {
     let app: express.Express;

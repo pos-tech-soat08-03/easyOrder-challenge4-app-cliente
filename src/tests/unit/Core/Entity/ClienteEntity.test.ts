@@ -1,8 +1,8 @@
 import { jest } from '@jest/globals';
 import { v4 as uuidv4 } from 'uuid';
-import { ClienteEntity } from '../../../easyorder/Core/Entity/ClienteEntity';
-import { CpfValueObject } from '../../../easyorder/Core/Entity/ValueObject/CpfValueObject';
-import { EmailValueObject } from '../../../easyorder/Core/Entity/ValueObject/EmailValueObject';
+import { ClienteEntity } from '../../../../easyorder/Core/Entity/ClienteEntity';
+import { CpfValueObject } from '../../../../easyorder/Core/Entity/ValueObject/CpfValueObject';
+import { EmailValueObject } from '../../../../easyorder/Core/Entity/ValueObject/EmailValueObject';
 
 jest.mock('uuid');
 

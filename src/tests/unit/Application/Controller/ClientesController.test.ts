@@ -1,11 +1,11 @@
-import { ClientesController } from "../../../easyorder/Application/Controller/ClientesController";
-import { IDbConnection } from "../../../easyorder/Core/Interfaces/IDbConnection";
-import { ClientesUsecases } from "../../../easyorder/Core/Usecase/ClientesUsecases";
-import { ClienteAdapter } from "../../../easyorder/Application/Presenter/ClienteAdapter";
-import { ClienteGatewayMock } from "../../../easyorder/Infrastructure/DB/Mock/ClienteGatewayMock";
+import { ClientesController } from "../../../../easyorder/Application/Controller/ClientesController";
+import { IDbConnection } from "../../../../easyorder/Core/Interfaces/IDbConnection";
+import { ClientesUsecases } from "../../../../easyorder/Core/Usecase/ClientesUsecases";
+import { ClienteAdapter } from "../../../../easyorder/Application/Presenter/ClienteAdapter";
+import { ClienteGatewayMock } from "../../../../easyorder/Infrastructure/DB/Mock/ClienteGatewayMock";
 
-jest.mock("../../../easyorder/Core/Usecase/ClientesUsecases");
-jest.mock("../../../easyorder/Application/Presenter/ClienteAdapter");
+jest.mock("../../../../easyorder/Core/Usecase/ClientesUsecases");
+jest.mock("../../../../easyorder/Application/Presenter/ClienteAdapter");
 
 describe("Testes unitários ClientesController", () => {
     let dbConnection: IDbConnection;

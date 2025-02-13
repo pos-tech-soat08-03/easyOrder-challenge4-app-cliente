@@ -1,4 +1,4 @@
-import { CpfValueObject } from '../../../../easyorder/Core/Entity/ValueObject/CpfValueObject';
+import { CpfValueObject } from '../../../../../easyorder/Core/Entity/ValueObject/CpfValueObject';
 
 describe('Testes unitários CpfValueObject', () => {
 
