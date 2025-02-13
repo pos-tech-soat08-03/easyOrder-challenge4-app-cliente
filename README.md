@@ -33,9 +33,11 @@ O Projeto no SonarCloud pode ser acessado em:
 
 ## Cobertura de Testes
 
--------------- Inserir info sobre cobertura de testes ---------------
+![Cobertura Testes](docs/assets/captura-teste-cobertura.png)
 
 ## Roteiro de Testes BDD
+
+![Teste BDD](docs/assets/captura-teste-bdd.png)
 
 -------------- Inserir info sobre roteiro de testes BDD ---------------
 
