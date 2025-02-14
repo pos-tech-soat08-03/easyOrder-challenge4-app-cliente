@@ -39,8 +39,6 @@ O Projeto no SonarCloud pode ser acessado em:
 
 ![Teste BDD](docs/assets/captura-teste-bdd.png)
 
--------------- Inserir info sobre roteiro de testes BDD ---------------
-
 ## Configuração do CI/CD
 
 O repositório possui um workflow de CI/CD configurado com o Github Actions, que realiza a validação e deploy do Microserviço na AWS.

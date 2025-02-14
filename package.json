@@ -1,7 +1,7 @@
 {
   "name": "easyorder-app-cliente",
   "version": "4.0.0",
-  "description": "easyOrder: Aplicação Tech Challenge POS TECH SOAT8 FIAP - Microserviço Cliente",
+  "description": "easyOrder: Aplicação Tech Challenge POS TECH SOAT8 FIAP - Microserviço Clientes",
   "main": "src/app.ts",
   "scripts": {
     "test": "jest --testLocationInResults --colors",
