@@ -18,7 +18,7 @@
   "dependencies": {
     "@types/jest": "^29.5.13",
     "@types/supertest": "^6.0.2",
-    "axios": "^1.7.3",
+    "axios": "^1.8.2",
     "dotenv-cli": "^7.4.1",
     "easy-bdd-tool-jest": "^1.0.4",
     "express": "^4.19.2",
